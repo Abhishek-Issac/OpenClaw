@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Stylised "Z" claw mark in OnePlus Vivid Red -->
+    <path
+        android:fillColor="#EB0029"
+        android:pathData="M36,38 L72,38 L72,46 L52,68 L72,68 L72,76 L36,76 L36,68 L56,46 L36,46 Z" />
+</vector>
