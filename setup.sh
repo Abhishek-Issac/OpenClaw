@@ -63,8 +63,15 @@ apt_install() {
     command -v apt-get >/dev/null 2>&1 \
         || fatal "apt-get not found. This script targets Ubuntu/Debian. Install: $*"
     log "Installing apt packages: $*"
-    $SUDO apt-get update -qq
-    $SUDO DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "$@"
+    # `env VAR=val cmd` works whether $SUDO is empty (running as root) or
+    # `sudo` (running as a regular user). Writing `$SUDO VAR=val cmd`
+    # directly breaks under bash when $SUDO is empty because the parser
+    # has already finished detecting prefix assignments by the time the
+    # variable is expanded — bash then tries to execute `VAR=val` as a
+    # command and fails with "command not found".
+    $SUDO env DEBIAN_FRONTEND=noninteractive apt-get update -qq
+    $SUDO env DEBIAN_FRONTEND=noninteractive \
+        apt-get install -y --no-install-recommends "$@"
 }
 
 ensure_prereqs() {
