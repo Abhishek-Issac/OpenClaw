@@ -31,7 +31,12 @@ Requires JDK 17 and the Android SDK with API 34.
 ./gradlew assembleDebug    # Build the debug APK
 ```
 
-CI runs all three on every push and pull request to `main`.
+A CI workflow template is shipped at
+[`docs/ci/ci.yml.template`](docs/ci/ci.yml.template). A maintainer should
+copy it to `.github/workflows/ci.yml` to enable GitHub Actions on every
+push and pull request to `main`. (Devin's GitHub App does not hold the
+`workflow` scope required to write under `.github/workflows/`, so the
+file is shipped as a template instead.)
 
 ## Tech stack
 

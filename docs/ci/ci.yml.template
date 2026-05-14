@@ -1,3 +1,10 @@
+# Copy this file to `.github/workflows/ci.yml` to enable CI.
+#
+# This is shipped as a template because the GitHub App used by Devin does not
+# hold the `workflow` scope required to add or modify files under
+# `.github/workflows/`. Once a maintainer with the right scope copies this
+# file into place, every push and PR to `main` will run ktlint, detekt, and
+# `assembleDebug`.
 name: CI
 
 on:
