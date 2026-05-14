@@ -23,7 +23,32 @@ with ktlint, detekt, and GitHub Actions CI. See
 
 ## Build
 
-Requires JDK 17 and the Android SDK with API 34.
+### One-line install + build (fresh Ubuntu)
+
+From any Ubuntu/Debian shell with `git` available:
+
+```bash
+git clone https://github.com/Abhishek-Issac/OpenClaw.git && cd OpenClaw && bash setup.sh
+```
+
+[`setup.sh`](setup.sh) is idempotent. It will:
+
+1. `apt install` OpenJDK 17 + `unzip`/`curl`/`git`/`file` if missing
+2. Download Android command-line tools into `~/android-sdk`
+3. Accept all SDK licences and install `platform-tools`, `platforms;android-34`, `build-tools;34.0.0`
+4. Write a local `local.properties` pointing Gradle at the SDK
+5. Run `./gradlew assembleDebug` with the bundled Gradle 8.7 wrapper
+6. Copy the resulting APK into **`./dist/`** as both a timestamped file and `OpenClawZenith-debug.apk`
+
+Install the APK on a device:
+
+```bash
+adb install -r dist/OpenClawZenith-debug.apk
+```
+
+### Manual build (existing setup)
+
+If you already have JDK 17 and the Android SDK with API 34:
 
 ```bash
 ./gradlew ktlintCheck      # Kotlin style
