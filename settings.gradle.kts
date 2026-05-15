@@ -24,3 +24,7 @@ rootProject.name = "OpenClawZenith"
 include(":app")
 include(":core:designsystem")
 include(":core:ui")
+include(":core:common")
+include(":core:datastore")
+include(":core:security")
+include(":core:database")

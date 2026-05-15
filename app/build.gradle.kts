@@ -58,10 +58,16 @@ android {
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
+    implementation(project(":core:common"))
+    implementation(project(":core:datastore"))
+    implementation(project(":core:security"))
+    implementation(project(":core:database"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.timber)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
