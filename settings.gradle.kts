@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "OpenClawZenith"
 include(":app")
+include(":core:designsystem")
+include(":core:ui")
